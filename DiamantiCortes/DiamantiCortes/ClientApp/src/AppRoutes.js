@@ -1,7 +1,7 @@
 import { Home } from "./components/Home";
 import Login from "./components/Login.js";
 import Atendimentos from "./components/Atendimentos.js";
-import NovoAtendimento from "./components/NovoAtendimento.js";
+import NovoAgendamento from "./components/NovoAgendamento.js";
 import NovoServico from "./components/NovoServico.js";
 
 const AppRoutes = [
@@ -18,8 +18,8 @@ const AppRoutes = [
     element: <Atendimentos />
   },
   {
-    path: '/novo-atendimento',
-    element: <NovoAtendimento />
+    path: '/novo-agendamento',
+    element: <NovoAgendamento />
   },
   {
     path: '/novo-servico',
