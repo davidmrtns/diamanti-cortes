@@ -1,9 +1,19 @@
+import style from "./Login.module.css";
+
+
+
+
+
 function Login() {
     return (
-        <div>
-            <h1>Página de Login</h1>
-            <p>Página onde o cabeleireiro fará login</p>
-        </div>
+    <div className={style.login}>
+        <h1>login</h1>
+        <input type="text" placeholder="nome"/>
+        <br/><br/>
+        <input type="password" placeholder="senha"/>
+        <br/><br/>
+        <button>entrar</button>
+    </div>
     );
 }
 
