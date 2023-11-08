@@ -1,5 +1,12 @@
-function NovoAgendamento() {
+import {useState} from 'react'
+import { BiLogoInstagram  } from "react-icons/bi";
+import { BiLogoWhatsapp  } from "react-icons/bi";
 
+
+import styles from './agendamento.module.css'
+import Form from './TelaAgendamento/Form';
+function NovoAgendamento() {
+/*
     async function inserir() {
         var resposta;
         //puxar dados do formulário com js (tratar com .trim())
@@ -33,12 +40,19 @@ function NovoAgendamento() {
         }
         return resposta;
     }
+*/
 
     return (
-        <div>
-            <h1>Página de Novo Agendamento</h1>
-            <p>Página onde o cliente fará o agendamento</p>
-        </div>
+        <div className={styles.pai}>
+            <div className={styles.cabecalho}>
+                    <span><h1>DIAMANTE CORTES</h1></span>
+                    <span><BiLogoInstagram className={styles.insta}/></span>
+                    <span><BiLogoWhatsapp size={30} className={styles.whats}/><p className={styles.telefone}>(19)98733-0936</p></span>
+            </div>
+            <div>
+                <Form/>
+            </div>  
+        </div>    
     );
 }
 
