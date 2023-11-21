@@ -7,7 +7,7 @@ function Login() {
                 <h1>login</h1>
                 <input type="text" placeholder="nome" />
                 <br /><br />
-                <input type="password" placeholder="senha" />
+                <input type="password" placeholder="senha" /> 
                 <br /><br />
                 <button>entrar</button>
             </div>

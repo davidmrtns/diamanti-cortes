@@ -14,6 +14,7 @@ const Form = () => {
 
     const  env = (e)=>{
         e.preventDefault()
+        var servico = document.getElementsByName[0];
         console.log(cabelo)
         console.log(barba)
         console.log(sombrancelha)
@@ -30,13 +31,13 @@ const Form = () => {
 
                 <div>
                     <div><h5>CORTE</h5>
-                        <input className={styles.check} type="checkbox"  onChange={(e) => setCabelo(e.target.value)}/>
+                        <input className={styles.check} type="radio" name="servicos" onChange={(e) => setCabelo(e.target.value)} />
                     </div>
                     <div><h5>BARBA</h5>
-                        <input className={styles.check} type="checkbox" onChange={(e) => setBarba(e.target.value)}/>
+                        <input className={styles.check} type="radio" name="servicos" onChange={(e) => setBarba(e.target.value)} />
                     </div>
                     <div><h5>SOMBRANCELHA</h5>
-                        <input className={styles.check} type="checkbox" onChange={(e) => setSombrancelha(e.target.value)}/>
+                        <input className={styles.check} type="radio" name="servicos" onChange={(e) => setSombrancelha(e.target.value)} />
                     </div>
                     
                 </div>
