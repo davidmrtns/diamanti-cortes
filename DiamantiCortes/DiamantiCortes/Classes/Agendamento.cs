@@ -3,9 +3,10 @@
     public class Agendamento
     {
         //atributos
-        private string nomeCLiente, telefoneCliente, idCabeleireiro, idServico, idHoraDia;
+        private string id, nomeCLiente, telefoneCliente, idCabeleireiro, idServico, idHoraDia;
 
         //propriedades (get/set)
+        public string Id { get { return id; } set { id = value; } }
         public string NomeCliente { get { return nomeCLiente; } set { nomeCLiente = value; } }
         public string TelefoneCliente { get { return telefoneCliente; } set { telefoneCliente = value; } }
         public string IdCabeleireiro { get { return idCabeleireiro; } set { idCabeleireiro = value; } }

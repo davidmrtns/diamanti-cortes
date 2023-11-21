@@ -1,55 +1,56 @@
-import { useState } from "react";
-
 import styles from "../agendamento.module.css"
 
 const Form = () => {
 
-    const [barba, setBarba] = useState()
-    const [cabelo, setCabelo] = useState()
-    const [sombrancelha, setSombrancelha] = useState()
-    const [horas, setHoras] = useState()
-    const [dias, setDias] = useState()
-    const [telefone, setTelefone] = useState()
-    const [nome, setNome] = useState()
+    const env = (e)=>{
+        e.preventDefault();
 
-    const  env = (e)=>{
-        e.preventDefault()
-        console.log(cabelo)
-        console.log(barba)
-        console.log(sombrancelha)
-        console.log(nome)
-        console.log(telefone)
-        console.log(dias)
-        console.log(horas)
+        var cabelo = document.getElementById("cabelo").checked;
+        var barba = document.getElementById("barba").checked;
+        var sobrancelha = document.getElementById("sobrancelha").checked;
+        var nome = document.getElementById("nome").value;
+        var telefone = document.getElementById("telefone").value;
+        var dia = document.getElementById("dia").value;
+        var horario = document.getElementById("horario").value;
+
+        if (cabelo || barba || sobrancelha || nome || telefone || dia || horario) {
+            alert(cabelo);
+            alert(barba);
+            alert(sobrancelha);
+            alert(nome);
+            alert(telefone);
+            alert(dia);
+            alert(horario);
+        }
     }
     
     return(
         <div className={styles.form}>
-            <h1 style={{color:" rgb(161, 34, 34)"}}>AGENDAMENTO</h1>
-            <form onSubmit={env}>
+            <h1 style={{ color: " rgb(161, 34, 34)" }}>AGENDAMENTO</h1>
+            <form method="post" onSubmit={env}>
 
                 <div>
                     <div><h5>CORTE</h5>
-                        <input className={styles.check} type="checkbox"  onChange={(e) => setCabelo(e.target.value)}/>
+                        <input className={styles.check} id="cabelo" type="checkbox" />
                     </div>
                     <div><h5>BARBA</h5>
-                        <input className={styles.check} type="checkbox" onChange={(e) => setBarba(e.target.value)}/>
+                        <input className={styles.check} id="barba" type="checkbox" />
                     </div>
-                    <div><h5>SOMBRANCELHA</h5>
-                        <input className={styles.check} type="checkbox" onChange={(e) => setSombrancelha(e.target.value)}/>
+                    <div><h5>SOBRANCELHA</h5>
+                        <input className={styles.check} id="sobrancelha" type="checkbox" />
                     </div>
                     
                 </div>
 
                 <div>
                     <label htmlFor="nome"></label><br/>   
-                    <input  className={styles.input} id="nome" type="text" placeholder="NOME" onChange={(e) => setNome(e.target.value)}/><br/>
+                    <input  className={styles.input} id="nome" type="text" placeholder="NOME" /><br/>
                     <label htmlFor="telefone"></label><br/>   
-                    <input className={styles.input} id="telefone" type="text" placeholder="NUMERO PARA CONTATO"  onChange={(e) => setTelefone(e.target.value)}/><br/><br></br>
+                    <input className={styles.input} id="telefone" type="text" placeholder="NUMERO PARA CONTATO" /><br/><br></br>
                 </div>
                 <div>
                     <label htmlFor="dia">dia</label><br/>
-                    <select id="dia" className={styles.select} onChange={(e) => setDias(e.target.value)}>
+                    <select id="dia" className={styles.select}>
                         <option>terça</option>
                         <option>quarta</option>
                         <option>quinta</option>
@@ -59,7 +60,7 @@ const Form = () => {
                 </div>
                 <div>
                     <label htmlFor="horario">horario</label><br/>
-                    <select id="horario" className={styles.select} onChange={(e) => setHoras(e.target.value)}>
+                    <select id="horario" className={styles.select}>
                         <option>11:00</option>
                         <option>12:00</option>
                         <option>13:00</option>
