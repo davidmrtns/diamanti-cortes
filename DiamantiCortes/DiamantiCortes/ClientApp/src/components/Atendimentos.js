@@ -1,8 +1,23 @@
 function Atendimentos() {
     return (
         <div>
-            <h1>Página de Atendimentos</h1>
-            <p>Página onde ficarão todos os atendimentos do cabeleireireiro</p>
+            <header>
+       <h1>Barbearia diamanti - cliente do dia</h1> 
+    </header>
+
+
+    <section id="cliente-do-dia">
+       <h2>Clientes Agendados para Hoje</h2>
+        <ul>
+         <li>Cliente 1</li>
+         <li>Cliente 2</li>
+         <li>Cliente 3</li>
+       <!--Adicione mais clientes conforme necessário -->
+        </ul>
+    </section>
+    <footer>
+        <p>&copy; 2023 Barbearia diamanti</p>
+    </footer>
         </div>
     );
 }
