@@ -12,7 +12,6 @@ function Atendimentos() {
          <li>Cliente 1</li>
          <li>Cliente 2</li>
          <li>Cliente 3</li>
-       <!--Adicione mais clientes conforme necessário -->
         </ul>
     </section>
     <footer>
