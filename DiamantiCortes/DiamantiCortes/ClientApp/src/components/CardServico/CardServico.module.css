@@ -1,0 +1,30 @@
+﻿.card {
+    background: #e16c6c;
+    padding: 8px 10px;
+    border-radius: 20px;
+    text-align: left;
+    cursor: pointer;
+    width: 90%;
+}
+
+.card h1{
+    font-size: 30px;
+    margin-bottom: -7px;
+}
+
+.card div.gaveta{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card div.gaveta p{
+    margin-bottom: 0;
+    font-size: 14px;
+}
+
+.card input[type=checkbox]{
+    width: 16px;
+    height: 16px;
+}
+

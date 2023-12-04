@@ -1,0 +1,26 @@
+﻿.card {
+    background: #e16c6c;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.card h1{
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.card div.gaveta{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card div.gaveta p{
+    margin-bottom: 0;
+}
+
+.excluir {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #233894;
+}

@@ -14,25 +14,23 @@ namespace DiamantiCortes.Controllers
         [HttpPost]
         public IActionResult InserirAgendamento([FromBody] AgendamentoModel agendamento)
         {
-            bool resultado;
+            long? resultado;
             //obtém dados do model (recebidos pelo fetch do frontend)
             string nomeCliente = agendamento.NomeCliente;
             string telefoneCliente = agendamento.TelefoneCliente;
             string idCabeleireiro = agendamento.IdCabeleireiro;
             string idServico = "1";
-            string idHoraDia = "1";
-            /*string idServico = agendamento.IdServico;
-            string idHoraDia = agendamento.IdHoraDia;*/
+            string data = agendamento.Data;
 
             try
             {
                 //cria o objeto do agendamento e faz a inserção no banco de dados
-                Agendamento a = new Agendamento(nomeCliente, telefoneCliente, idCabeleireiro, idServico, idHoraDia);
+                Agendamento a = new Agendamento(nomeCliente, telefoneCliente, idCabeleireiro, idServico, data);
                 resultado = a.InserirAgendamento();
             }
             catch
             {
-                resultado = false;
+                resultado = null;
             }
             //retorna o resultado
             return Ok(resultado);
@@ -44,7 +42,6 @@ namespace DiamantiCortes.Controllers
         {
             bool resultado;
 
-            //obtém dados do model (recebidos pelo fetch do frontend)
             string id = cabeleireiro.Id;
             string nome = cabeleireiro.Nome;
             string usuario = cabeleireiro.Usuario;
@@ -59,7 +56,55 @@ namespace DiamantiCortes.Controllers
             {
                 resultado = false;
             }
-            //retorna o resultado
+
+            return Ok(resultado);
+        }
+
+        [Route("inserir-servico")]
+        [HttpPost]
+        public IActionResult InserirServico([FromBody] ServicoModel servico)
+        {
+            bool resultado;
+
+            string id = servico.Id;
+            string nomeServico = servico.NomeServico;
+            string descricao = servico.Descricao;
+            float preco = servico.Preco;
+
+            try
+            {
+                Servico s = new Servico(id, nomeServico, descricao, preco);
+                resultado = s.InserirServico();
+            }
+            catch
+            {
+                resultado = false;
+            }
+
+            return Ok(resultado);
+        }
+
+        [Route("inserir-servicos-agendamento")]
+        [HttpPost]
+        public IActionResult InserirServico([FromBody] ServicoAgendadoModel servicoAgendado)
+        {
+            bool resultado = false;
+
+            string idAgendamento = servicoAgendado.IdAgendamento;
+            List<string> idServicos = servicoAgendado.IdServicos;
+
+            try
+            {
+                foreach (string idServico in idServicos)
+                {
+                    resultado = Servico.InserirServicoAgendado(idAgendamento, idServico);
+                }
+            }
+            catch
+            {
+                resultado = false;
+            }
+
             return Ok(resultado);
         }
 
@@ -83,6 +128,7 @@ namespace DiamantiCortes.Controllers
             }
         }
 
+        /*BUSCAR*/
         [HttpGet]
         [Route("validar")]
         public bool Validar()
@@ -99,6 +145,78 @@ namespace DiamantiCortes.Controllers
                 c = null;
                 return false;
             }
+        }
+
+        [HttpGet]
+        [Route("listar-servicos")]
+        public IActionResult ListarServicos()
+        {
+            List<Servico> lista = Servico.ListarServicos();
+
+            if (lista != null)
+            {
+                return Ok(lista);
+            }
+            else
+            {
+                return NoContent();
+            }
+        }
+
+        [HttpGet]
+        [Route("listar-dias-semana")]
+        public IActionResult ListarDiasSemana()
+        {
+            List<DiaSemana> lista = DiaSemana.ListarDiasSemana();
+
+            if (lista != null)
+            {
+                return Ok(lista);
+            }
+            else
+            {
+                return NoContent();
+            }
+        }
+
+        [HttpGet]
+        [Route("listar-atendimentos-mes")]
+        public IActionResult ListarAgendamentosMes([FromQuery] int mes, [FromQuery] int ano)
+        {
+            List<Agendamento> lista = Agendamento.BuscarAgendamentosMes(mes, ano);
+
+            if (lista != null)
+            {
+                return Ok(lista);
+            }
+            else
+            {
+                return NoContent();
+            }
+        }
+
+        [HttpGet]
+        [Route("buscar-servicos-agendados")]
+        public IActionResult BuscarServicosAgendados([FromQuery] string id)
+        {
+            List<Servico> lista = Servico.BuscarServicosAgendados(id);
+
+            if (lista != null)
+            {
+                return Ok(lista);
+            }
+            else
+            {
+                return NoContent();
+            }
+        }
+
+        /*EXCLUIR*/
+        [HttpDelete]
+        [Route("cancelar-agendamento")]
+        public IActionResult CancelarAgendamento([FromQuery] int id)
+        {
+            return Ok(Agendamento.ExcluirAgendamento(id));
         }
     }
 }

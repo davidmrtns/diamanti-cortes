@@ -32,7 +32,7 @@ function Login() {
                     .then((data) => { resultado = data });
 
                 if (resultado) {
-                    window.location.href = "/";
+                    window.location.href = "/atendimentos/";
                 } else {
                     alert('O usuário ou senha inseridos não existem');
                     setEnviado(false);

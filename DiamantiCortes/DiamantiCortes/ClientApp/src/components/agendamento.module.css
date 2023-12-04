@@ -8,6 +8,7 @@
     flex-direction: column;
   
 }
+
 .cabecalho{
     background-color: black;
     color: rgb(161, 34, 34);
@@ -16,6 +17,7 @@
     position: absolute;
     top: 0px;
 }
+
 .form{
     opacity: 0.9;
     background-color: white;
@@ -24,6 +26,20 @@
     border-radius: 15px;
     text-align: center;
 }
+
+.gaveta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 15px;
+}
+
+.servicos{
+    overflow-y: scroll;
+    height: 250px;
+}
+
 .select{
     width: 20vw;
     height: 5vh;
@@ -31,13 +47,16 @@
     border: solid black;
     border-radius: 15px;
 }
-.input{
+
+.input {
     width: 20vw;
     height: 5vh;
     margin-bottom: 12px;
     border: solid black;
     border-radius: 15px;
+    padding-left: 10px;
 }
+
 .botao{
     width: 20vw;
     height: 5vh;
@@ -46,17 +65,21 @@
     border-radius: 15px;
     background-color: rgb(161, 34, 34);
 }
+
 .check{
     width: 20px;
     height: 20px;
     margin-left: 10px;
 }
+
 .botao:hover{
     opacity: 0.7;
 }
+
 .select:hover{
     cursor: pointer;
 }
+
 .insta{
     position: absolute;
     top: 3px;
@@ -64,6 +87,7 @@
     height:50px;
     width: 50px;
 }
+
 .whats{
     position: absolute;
     top: 3px;
@@ -71,6 +95,7 @@
     height:50px;
     width: 50px;
 }
+
 .telefone{
     position: absolute;
     top: 3px;
