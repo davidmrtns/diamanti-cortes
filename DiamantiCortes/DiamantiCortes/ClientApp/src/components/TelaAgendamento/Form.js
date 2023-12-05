@@ -111,10 +111,6 @@ const Form = () => {
 
     const handleRetrieveSelectedServicos = () => {
         var teste = selectedServicos;
-        /*const selectedIds = servicos
-            .filter(servico => selectedServicos.includes(servico.id))
-            .map(selectedServico => selectedServico.id);*/
-
         return teste;
     };
 

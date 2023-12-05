@@ -87,9 +87,8 @@ namespace DiamantiCortes.Classes
                 }
                 con.Close();
             }
-            catch(Exception e)
+            catch
             {
-                string erro = e.Message;
                 c = null;
             }
             return c;

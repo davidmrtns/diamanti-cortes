@@ -2,7 +2,7 @@ import { Home } from "./components/Home";
 import Login from "./components/Login.js";
 import Atendimentos from "./components/Atendimentos.js";
 import NovoAgendamento from "./components/NovoAgendamento.js";
-import NovoServico from "./components/NovoServico.js";
+import Servicos from "./components/NovoServico/Servicos.js";
 import PrivateRoute from "./components/PrivateRoute";
 
 const AppRoutes = [
@@ -19,8 +19,8 @@ const AppRoutes = [
                 element: <Atendimentos />
             },
             {
-                path: '/novo-servico',
-                element: <NovoServico />
+                path: '/servicos',
+                element: <Servicos />
             }
         ]
     },

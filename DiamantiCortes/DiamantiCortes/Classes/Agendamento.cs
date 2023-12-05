@@ -26,12 +26,9 @@ namespace DiamantiCortes.Classes
             Data = data;
         }
 
-        public Agendamento(string nomeCliente, /*bool cabelo, bool barba, bool sobrancelha,*/ string telefoneCliente, string idCabeleireiro, string idServico, string data)
+        public Agendamento(string nomeCliente, string telefoneCliente, string idCabeleireiro, string idServico, string data)
         {
             NomeCliente = nomeCliente;
-            /*Cabelo = cabelo;
-            Barba = barba;
-            Sobrancelha = sobrancelha;*/
             TelefoneCliente = telefoneCliente;
             IdCabeleireiro = idCabeleireiro;
             IdServico = idServico;

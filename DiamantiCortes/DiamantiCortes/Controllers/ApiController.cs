@@ -128,6 +128,31 @@ namespace DiamantiCortes.Controllers
             }
         }
 
+        /*ATUALIZAR*/
+        [Route("editar-servico")]
+        [HttpPost]
+        public IActionResult AtualizarServico([FromBody] ServicoModel servico)
+        {
+            bool resultado;
+
+            string id = servico.Id;
+            string nomeServico = servico.NomeServico;
+            string descricao = servico.Descricao;
+            float preco = servico.Preco;
+
+            try
+            {
+                Servico s = new Servico(id, nomeServico, descricao, preco);
+                resultado = s.EditarServico();
+            }
+            catch
+            {
+                resultado = false;
+            }
+
+            return Ok(resultado);
+        }
+
         /*BUSCAR*/
         [HttpGet]
         [Route("validar")]
@@ -217,6 +242,29 @@ namespace DiamantiCortes.Controllers
         public IActionResult CancelarAgendamento([FromQuery] int id)
         {
             return Ok(Agendamento.ExcluirAgendamento(id));
+        }
+
+        [HttpDelete]
+        [Route("excluir-servico")]
+        public IActionResult ExcluirServico([FromQuery] int id)
+        {
+            return Ok(Servico.ExcluirServico(id));
+        }
+
+        /*DESCONECTAR*/
+        [HttpGet]
+        [Route("desconectar")]
+        public bool Desconectar()
+        {
+            try
+            {
+                HttpContext.Session.Clear();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

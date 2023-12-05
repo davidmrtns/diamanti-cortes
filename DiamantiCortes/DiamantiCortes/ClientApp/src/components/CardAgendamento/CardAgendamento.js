@@ -60,7 +60,7 @@ function CardAgendamento({ agendamento }) {
                 <div>
                     <p><FontAwesomeIcon icon={faPhone}></FontAwesomeIcon> {agendamento.telefoneCliente}</p>
                     <p><FontAwesomeIcon icon={faCalendarDays}></FontAwesomeIcon> {agendamento.data}</p>
-                    <p className={style.excluir} onClick={excluir}><FontAwesomeIcon icon={faBan}></FontAwesomeIcon> Cancelar agendamento</p>
+                    <p className={style.acao} onClick={excluir}><FontAwesomeIcon icon={faBan}></FontAwesomeIcon> Cancelar agendamento</p>
                 </div>
             </div>
         </div>

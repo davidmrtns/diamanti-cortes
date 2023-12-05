@@ -171,5 +171,52 @@ namespace DiamantiCortes.Classes
 
             return lista;
         }
+
+        public bool EditarServico()
+        {
+            MySqlConnection con = new MySqlConnection(Conexao.CodConexao);
+
+            try{
+                con.Open();
+
+                MySqlCommand query = new MySqlCommand("UPDATE servico SET nomeServico = @nomeServico, descricao = @descricao, " +
+                    "preco = @preco WHERE id = @id", con);
+                query.Parameters.AddWithValue("@id", Id);
+                query.Parameters.AddWithValue("@nomeServico", NomeServico);
+                query.Parameters.AddWithValue("@preco", Preco);
+                query.Parameters.AddWithValue("@descricao", Descricao);
+
+                query.ExecuteNonQuery();
+
+                con.Close();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public static bool ExcluirServico(int id)
+        {
+            MySqlConnection con = new MySqlConnection(Conexao.CodConexao);
+
+            try
+            {
+                con.Open();
+
+                MySqlCommand query = new MySqlCommand("DELETE FROM servico WHERE id = @id", con);
+                query.Parameters.AddWithValue("@id", id);
+
+                query.ExecuteNonQuery();
+                con.Close();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }
